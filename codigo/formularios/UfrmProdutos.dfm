@@ -66,7 +66,7 @@ object frmProdutos: TfrmProdutos
       Height = 25
       Caption = 'Cadastro de Produto'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clGreen
+      Font.Color = 6376463
       Font.Height = -21
       Font.Name = 'Roboto'
       Font.Style = []
@@ -105,7 +105,7 @@ object frmProdutos: TfrmProdutos
       Height = 25
       Caption = 'Lista de Produtos'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clGreen
+      Font.Color = 6376463
       Font.Height = -21
       Font.Name = 'Roboto'
       Font.Style = []

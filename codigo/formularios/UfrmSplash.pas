@@ -31,8 +31,8 @@ type
   private
     { Private declarations }
     Inicialized: Boolean;
-    procedure InicializeApplication();
-    procedure SetMainForm(NewMainForm: TForm);
+    procedure InicializarAplicacao;
+    procedure SetarFormPrincipal(NewMainForm: TForm);
   public
     { Public declarations }
   end;
@@ -44,7 +44,7 @@ implementation
 
 {$R *.dfm}
 
-uses UfrmPainelGestao;
+uses UfrmPainelGestao, ufrmLogin;
 
 procedure TfrmSplash.FormCreate(Sender: TObject);
 begin
@@ -58,15 +58,15 @@ begin
   tmrSplash.Enabled := not Inicialized;
 end;
 
-procedure TfrmSplash.InicializeApplication;
+procedure TfrmSplash.InicializarAplicacao;
 begin
-  if not Assigned(frmPainelGestao) then
+  if not Assigned(frmlogin) then
   begin
-    Application.CreateForm(TfrmPainelGestao, frmPainelGestao);
+    Application.CreateForm(Tfrmlogin, frmlogin);
   end;
 
-  SetMainForm(frmPainelGestao);
-  frmPainelGestao.Show();
+  SetarFormPrincipal(frmlogin);
+  frmlogin.Show();
 
   Close;
 end;
@@ -77,11 +77,11 @@ begin
   if not Inicialized then
   begin
     Inicialized := true;
-    InicializeApplication();
+    InicializarAplicacao();
   end;
 end;
 
-procedure TfrmSplash.SetMainForm(NewMainForm: TForm);
+procedure TfrmSplash.SetarFormPrincipal(NewMainForm: TForm);
 var
   tmpMain: ^TCustomForm;
 begin

@@ -52,7 +52,7 @@ object frmMesas: TfrmMesas
       Height = 25
       Caption = 'Cadastro de Mesa'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clGreen
+      Font.Color = 6376463
       Font.Height = -21
       Font.Name = 'Roboto'
       Font.Style = []
@@ -91,7 +91,7 @@ object frmMesas: TfrmMesas
       Height = 25
       Caption = 'Lista de Mesas'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clGreen
+      Font.Color = 6376463
       Font.Height = -21
       Font.Name = 'Roboto'
       Font.Style = []
@@ -369,7 +369,6 @@ object frmMesas: TfrmMesas
     end
   end
   object tblMesas: TFDTable
-    Active = True
     BeforePost = tblMesasBeforePost
     IndexFieldNames = 'id'
     Connection = dmRavin.cnxBancoDeDados

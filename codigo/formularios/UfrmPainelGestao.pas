@@ -26,7 +26,6 @@ type
     Shape1: TShape;
     Shape2: TShape;
     shpQtdPedidosPorDia: TShape;
-    Shape4: TShape;
     Shape5: TShape;
     imgLogomarca: TImage;
     lblNomeUsuario: TLabel;
@@ -37,6 +36,7 @@ type
     frmMenuItemConfiguracoes: TfrmMenuItem;
     frmMenuItemSobre: TfrmMenuItem;
     frmMenuItemSair: TfrmMenuItem;
+    Shape4: TShape;
     procedure FrameMenuItemMesasLabelTitleClick(Sender: TObject);
     procedure frmMenuItemSobrelblTituloClick(Sender: TObject);
     procedure frmMenuItemSairlblTituloClick(Sender: TObject);

@@ -85,9 +85,9 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <Icon_MainIcon>..\recursos\icones\1 - cutlery.ico</Icon_MainIcon>
-        <UWP_DelphiLogo44>..\recursos\icones\1 - cutlery.png</UWP_DelphiLogo44>
-        <UWP_DelphiLogo150>..\recursos\icones\1 - cutlery.png</UWP_DelphiLogo150>
+        <Icon_MainIcon>Ravin_Icon2.ico</Icon_MainIcon>
+        <UWP_DelphiLogo44>..\recursos\icones\Sem título.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>..\recursos\icones\Sem título.png</UWP_DelphiLogo150>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -148,6 +148,17 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\utils\UResourceUtils.pas"/>
+        <DCCReference Include="..\codigo\formularios\ufrmLogin.pas">
+            <Form>frmLogin</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\codigo\frames\frmBotaoPrimarioAutenticacao.pas">
+            <Form>Frame1</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\codigo\Modelos\Uusuario.pas"/>
+        <DCCReference Include="..\codigo\DAO\UusuarioDao.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -182,7 +193,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\recursos\icones\1 - cutlery.png" Configuration="Debug" Class="UWP_DelphiLogo44">
+                <DeployFile LocalName="..\recursos\icones\Sem título.png" Configuration="Debug" Class="UWP_DelphiLogo44">
                     <Platform Name="Win32">
                         <RemoteDir>Assets\</RemoteDir>
                         <RemoteName>Logo44x44.png</RemoteName>

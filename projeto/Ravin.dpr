@@ -12,7 +12,11 @@ uses
   UfrmProdutos in '..\codigo\formularios\UfrmProdutos.pas' {frmProdutos},
   UfrmPainelGestao in '..\codigo\formularios\UfrmPainelGestao.pas' {frmPainelGestao},
   UfrmComandas in '..\codigo\formularios\UfrmComandas.pas' {frmComandas},
-  UResourceUtils in '..\utils\UResourceUtils.pas';
+  UResourceUtils in '..\utils\UResourceUtils.pas',
+  ufrmLogin in '..\codigo\formularios\ufrmLogin.pas' {frmLogin},
+  frmBotaoPrimarioAutenticacao in '..\codigo\frames\frmBotaoPrimarioAutenticacao.pas' {Frame1: TFrame},
+  Uusuario in '..\codigo\Modelos\Uusuario.pas',
+  UusuarioDao in '..\codigo\DAO\UusuarioDao.pas';
 
 {$R *.res}
 
