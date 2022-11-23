@@ -22,6 +22,7 @@ type
     Button1: TButton;
     procedure FrameAutenticarSpeedButton1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure LblRegistrarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,7 +36,7 @@ implementation
 
 {$R *.dfm}
 
-uses UfrmPainelGestao, Uusuario, UusuarioDao;
+uses UfrmPainelGestao, Uusuario, UusuarioDao, UfrmRegistrar;
 
 procedure TfrmLogin.Button1Click(Sender: TObject);
 var
@@ -89,6 +90,18 @@ if Assigned (LUsuario) then
     FreeAndNil (Ldao);
   end;
 
+procedure TfrmLogin.LblRegistrarClick(Sender: TObject);
+begin
+  if not Assigned(frmregistrar) then
+  begin
+    Application.CreateForm(Tfrmregistrar, frmregistrar);
+  end;
+
+  setarfomprincipal(frmregistrar);
+  frmregistrar.Show();
+
+  Close();
+end;
 procedure TfrmLogin.setarfomprincipal(Pnovoformulario: TForm);
 var
   tmpMain: ^TCustomForm;

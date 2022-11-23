@@ -360,6 +360,7 @@ object frmLogin: TfrmLogin
     Font.Style = []
     ParentColor = False
     ParentFont = False
+    OnClick = LblRegistrarClick
   end
   object Label2: TLabel
     Left = 280
