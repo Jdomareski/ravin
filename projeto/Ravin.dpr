@@ -12,14 +12,15 @@ uses
   UfrmProdutos in '..\codigo\formularios\UfrmProdutos.pas' {frmProdutos},
   UfrmPainelGestao in '..\codigo\formularios\UfrmPainelGestao.pas' {frmPainelGestao},
   UfrmComandas in '..\codigo\formularios\UfrmComandas.pas' {frmComandas},
-  UResourceUtils in '..\utils\UResourceUtils.pas',
   ufrmLogin in '..\codigo\formularios\ufrmLogin.pas' {frmLogin},
   frmBotaoPrimarioAutenticacao in '..\codigo\frames\frmBotaoPrimarioAutenticacao.pas' {Frame1: TFrame},
   Uusuario in '..\codigo\Modelos\Uusuario.pas',
   UusuarioDao in '..\codigo\DAO\UusuarioDao.pas',
   UfrmBotaoPrimario in '..\codigo\frames\UfrmBotaoPrimario.pas' {frmBotaoPrimario: TFrame},
   UfrmRegistrar in '..\codigo\formularios\UfrmRegistrar.pas' {frmRegistrar},
-  UValidadorUsuario in '..\codigo\Validadores\UValidadorUsuario.pas';
+  UValidadorUsuario in '..\codigo\Validadores\UValidadorUsuario.pas',
+  UiniUtils in '..\codigo\Utils\UiniUtils.pas',
+  UResourceUtils in '..\codigo\Utils\UResourceUtils.pas';
 
 {$R *.res}
 

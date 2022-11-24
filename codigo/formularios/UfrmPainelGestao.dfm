@@ -86,7 +86,6 @@ object frmPainelGestao: TfrmPainelGestao
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 480
     DesignSize = (
       175
       527)
@@ -3877,7 +3876,7 @@ object frmPainelGestao: TfrmPainelGestao
             6082}
         end
         inherited lblTitulo: TLabel
-          Caption = 'Sair'
+          Caption = 'Deslogar'
           Font.Color = 6376463
           OnClick = frmMenuItemSairlblTituloClick
         end

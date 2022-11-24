@@ -36,72 +36,76 @@ implementation
 
 {$R *.dfm}
 
-uses UfrmPainelGestao, Uusuario, UusuarioDao, UfrmRegistrar;
+uses UfrmPainelGestao, Uusuario, UusuarioDao, UfrmRegistrar, UiniUtils;
 
 procedure TfrmLogin.Button1Click(Sender: TObject);
 var
-LUsuario: TUsuario;
-LDao : TUsuarioDAO;
+  LUsuario: TUsuario;
+  LDao: TUsuarioDAO;
 
 begin
 
-LUsuario := TUsuario.Create;
-LUsuario.login := 'Testte';
-LUsuario.senha := '123';
-LUsuario.pessoaId := 1;
-LUsuario.criadoEm := Now();
-LUsuario.criadoPor := 'Testte';
-LUsuario.alteradoEm := Now();
-LUsuario.alteradoPor := 'Testte';
+  LUsuario := TUsuario.Create;
+  LUsuario.login := 'Testte';
+  LUsuario.senha := '123';
+  LUsuario.pessoaId := 1;
+  LUsuario.criadoEm := Now();
+  LUsuario.criadoPor := 'Testte';
+  LUsuario.alteradoEm := Now();
+  LUsuario.alteradoPor := 'Testte';
 
-LDao := TUsuarioDao.Create;
-LDao.InserirUsuario (LUsuario);
+  LDao := TUsuarioDAO.Create;
+  LDao.InserirUsuario(LUsuario);
 
-FreeAndNil (LDao);
-FreeAndNil (LUsuario);
+  FreeAndNil(LDao);
+  FreeAndNil(LUsuario);
 
 end;
 
 procedure TfrmLogin.FrameAutenticarSpeedButton1Click(Sender: TObject);
 var
-LDao : TUsuarioDao;
-LUsuario : TUsuario;
-LLogin, LSenha : String;
+  LDao: TUsuarioDAO;
+  LUsuario: TUsuario;
+  LLogin, LSenha: String;
 begin
-LDao := TUsuarioDao.create;
-Llogin := edtLogin.Text;
-LSenha := edtSenha.Text;
-LUsuario := LDao.BuscarUsuarioPorLoginSenha(LLogin, LSenha);
+  LDao := TUsuarioDAO.Create;
+  LLogin := EdtLogin.Text;
+  LSenha := EdtSenha.Text;
+  LUsuario := LDao.BuscarUsuarioPorLoginSenha(LLogin, LSenha);
 
-if Assigned (LUsuario) then
+  if Assigned(LUsuario) then
   Begin
-   if not assigned(frmPainelGestao) then
+    TIniutils.gravarPropriedade(TSECAO.INFORMACOES_GERAIS, TPROPRIEDADE.LOGADO, Tiniutils.VALOR_VERDADEIRO);
+    if not Assigned(frmPainelGestao) then
     begin
-    application.CreateForm(tfrmpainelgestao, frmPainelGestao);
+      application.CreateForm(tfrmpainelgestao, frmPainelGestao);
     end;
-  setarfomprincipal(frmPainelGestao);
-  frmPainelGestao.show();
-  close();
+    setarfomprincipal(frmPainelGestao);
+    frmPainelGestao.show();
+    close();
 
-  End else begin
-     showmessage('Login e/ou senha invalido');
+  End
+  else
+  begin
+    showmessage('Login e/ou senha invalido');
   end;
-    FreeAndNil (Lusuario);
-    FreeAndNil (Ldao);
-  end;
+  FreeAndNil(LUsuario);
+  FreeAndNil(LDao);
+end;
 
 procedure TfrmLogin.LblRegistrarClick(Sender: TObject);
 begin
   if not Assigned(frmregistrar) then
   begin
-    Application.CreateForm(Tfrmregistrar, frmregistrar);
+    application.CreateForm(Tfrmregistrar, frmregistrar);
   end;
 
   setarfomprincipal(frmregistrar);
-  frmregistrar.Show();
+  frmregistrar.show();
 
-  Close();
+  close();
 end;
+
 procedure TfrmLogin.setarfomprincipal(Pnovoformulario: TForm);
 var
   tmpMain: ^TCustomForm;

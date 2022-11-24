@@ -61,39 +61,46 @@ var
   LDAO: TUSuarioDAO;
 begin
   try
-    LUsuario := TUsuario.create;
-    LUsuario.login := edtLogin.Text;
-    LUsuario.senha := edtSenha.Text;
-    LUsuario.pessoaid := 100;
-    LUsuario.criadoem := Now();
-    LUsuario.criadoPor := 'admin';
-    LUsuario.alteradoem := Now();
-    LUsuario.alteradoPor := 'admin';
 
-    TValidadorUsuario.Validar(LUsuario, edtConfirmarSenha.Text);
+    try
 
-    LDAO := TUSuarioDAO.create();
-    LDAO.inserirUsuario(LUsuario);
+      LUsuario := TUsuario.create;
+      LUsuario.login := edtLogin.Text;
+      LUsuario.senha := edtSenha.Text;
+      LUsuario.pessoaid := 100;
+      LUsuario.criadoem := Now();
+      LUsuario.criadoPor := 'admin';
+      LUsuario.alteradoem := Now();
+      LUsuario.alteradoPor := 'admin';
 
-    FreeandNil(LDAO);
+      TValidadorUsuario.Validar(LUsuario, edtConfirmarSenha.Text);
 
-  except
-    on E: EMySQLNativeException do
-    Begin
-      showMessage('Erro ao inserior usuário');
-    End;
-    on E: Exception do
-    begin
-      showMessage
-        ('Não foi possivel cadastrar o usuário, DEIXA DE SER BURRO!!! verifique os valores informados');
+      LDAO := TUSuarioDAO.create();
+      LDAO.inserirUsuario(LUsuario);
+
+    except
+      on E: EMySQLNativeException do
+      Begin
+        showMessage('Erro ao inserior usuário');
+      End;
+      on E: Exception do
+      begin
+        showMessage
+          ('Não foi possivel cadastrar o usuário, DEIXA DE SER BURRO!!! verifique os valores informados');
+      end;
+
     end;
-  end;
+  finally
+    if assigned(LDAO) then
+      FreeandNil(LDAO);
 
+    FreeandNil(LUsuario);
+  end;
 end;
 
 procedure TfrmRegistrar.lblSubTituloAutenticarClick(Sender: TObject);
 begin
-  if not Assigned(frmlogin) then
+  if not assigned(frmlogin) then
   begin
     Application.CreateForm(Tfrmlogin, frmlogin);
   end;
