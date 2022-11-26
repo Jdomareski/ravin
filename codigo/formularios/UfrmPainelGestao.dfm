@@ -3,8 +3,8 @@ object frmPainelGestao: TfrmPainelGestao
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Dashboard'
-  ClientHeight = 527
-  ClientWidth = 723
+  ClientHeight = 519
+  ClientWidth = 656
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,8 +14,8 @@ object frmPainelGestao: TfrmPainelGestao
   OldCreateOrder = False
   Position = poScreenCenter
   DesignSize = (
-    723
-    527)
+    656
+    519)
   PixelsPerInch = 96
   TextHeight = 13
   object lblPainelGestaoTitulo: TLabel
@@ -50,7 +50,7 @@ object frmPainelGestao: TfrmPainelGestao
   object shpQtdPedidosPorDia: TShape
     Left = 181
     Top = 126
-    Width = 534
+    Width = 467
     Height = 217
     Anchors = [akLeft, akTop, akRight]
     Pen.Color = clWhite
@@ -68,8 +68,8 @@ object frmPainelGestao: TfrmPainelGestao
   object Shape4: TShape
     Left = 181
     Top = 349
-    Width = 534
-    Height = 170
+    Width = 467
+    Height = 162
     Anchors = [akLeft, akTop, akRight, akBottom]
     Pen.Color = clWhite
     Shape = stRoundRect
@@ -80,15 +80,16 @@ object frmPainelGestao: TfrmPainelGestao
     Left = 0
     Top = 0
     Width = 175
-    Height = 527
+    Height = 519
     Align = alLeft
     BevelOuter = bvNone
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
+    ExplicitHeight = 527
     DesignSize = (
       175
-      527)
+      519)
     object imgLogomarca: TImage
       Left = 42
       Top = 16
@@ -2023,6 +2024,7 @@ object frmPainelGestao: TfrmPainelGestao
         inherited lblTitulo: TLabel
           Caption = 'Pessoas'
           Font.Color = 6376463
+          OnClick = frmMenuItemPessoaslblTituloClick
         end
       end
     end

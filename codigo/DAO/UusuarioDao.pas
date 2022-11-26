@@ -3,7 +3,7 @@ unit UusuarioDao;
 interface
 
 uses
-  Uusuario, FireDAC.Comp.Client;
+  Uusuario, FireDAC.Comp.Client, System.Generics.Collections;
 
 type
   TUsuarioDAO = class
@@ -13,6 +13,7 @@ type
   public
     function BuscarUsuarioPorLoginSenha(Plogin, Psenha: string): TUsuario;
     procedure inserirUsuario(PUsuario: TUsuario);
+    function BuscarTodosUsuarios: TList<TUsuario>;
 
   end;
 
@@ -21,6 +22,50 @@ implementation
 uses UdmRavin, System.SysUtils;
 
 { TUsuarioDAO }
+
+function TUsuarioDAO.BuscarTodosUsuarios: TList<TUsuario>;
+var
+LQuery : TFDQuery;      //Criar um objeto TFDQuery
+LusuarioTemp : TUsuario;   //Criar um objeto Usuario
+LLista : TList<TUsuario>;  //Criar a lista
+I : Integer;
+
+
+
+begin
+Lquery := TFDQuery.create(nil);
+LQuery.connection := dmRavin.cnxBancoDeDados;
+LQuery.SQL.Text := 'Select * FROM usuario ';
+LQuery.Open();
+
+LLista := TList<TUsuario>.create;
+
+// mapear os dados
+
+LUsuarioTemp := Nil;
+// colocar no inicio
+LQuery.First;
+// Definir que o while deve prosseguir até o fim arquivo
+while not LQuery.Eof do begin
+// criar objeto sempre dentro do while para não sobreescrever o objeto.
+  LUsuarioTemp := TUsuario.Create();
+// consulta o field da tabela e assim de ser feito para todos os itens que se queira recuperar
+  LUsuarioTemp.login := LQuery.FieldByName('Login').AsString;
+
+// adicionar na lista
+   Llista.Add(LUsuarioTemp);
+// ir para o próximo
+   LQuery.Next;
+
+end;
+
+
+Result := Llista;
+
+FreeAndNil (LQuery);
+
+
+end;
 
 function TUsuarioDAO.BuscarUsuarioPorLoginSenha(Plogin, Psenha: string)
   : TUsuario;

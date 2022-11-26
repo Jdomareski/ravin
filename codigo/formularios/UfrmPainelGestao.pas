@@ -43,6 +43,7 @@ type
     procedure frmMenuItemProdutoslblTituloClick(Sender: TObject);
     procedure frmMenuItemMesaslblTituloClick(Sender: TObject);
     procedure frmMenuItemComandaslblTituloClick(Sender: TObject);
+    procedure frmMenuItemPessoaslblTituloClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,7 +60,7 @@ implementation
 uses
   UfrmSobre,
   UfrmProdutos,
-  UfrmMesas, UfrmComandas, UiniUtils;
+  UfrmMesas, UfrmComandas, UiniUtils, UfrmBuscarUsuarios;
 
 procedure TfrmPainelGestao.FrameMenuItemMesasLabelTitleClick(Sender: TObject);
 begin
@@ -86,6 +87,15 @@ begin
     Application.CreateForm(TfrmMesas, frmMesas);
   end;
   frmMesas.show();
+end;
+
+procedure TfrmPainelGestao.frmMenuItemPessoaslblTituloClick(Sender: TObject);
+begin
+if not assigned (frmBuscarUsuarios) then
+begin
+  Application.CreateForm(TfrmBuscarUsuarios, frmBuscarUsuarios);
+end;
+ frmBuscarUsuarios.show();
 end;
 
 procedure TfrmPainelGestao.frmMenuItemProdutoslblTituloClick(Sender: TObject);

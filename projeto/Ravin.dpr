@@ -20,7 +20,8 @@ uses
   UfrmRegistrar in '..\codigo\formularios\UfrmRegistrar.pas' {frmRegistrar},
   UValidadorUsuario in '..\codigo\Validadores\UValidadorUsuario.pas',
   UiniUtils in '..\codigo\Utils\UiniUtils.pas',
-  UResourceUtils in '..\codigo\Utils\UResourceUtils.pas';
+  UResourceUtils in '..\codigo\Utils\UResourceUtils.pas',
+  UfrmBuscarUsuarios in '..\codigo\formularios\UfrmBuscarUsuarios.pas' {frmBuscarUsuarios};
 
 {$R *.res}
 
@@ -31,5 +32,6 @@ begin
   Application.CreateForm(TdmRavin, dmRavin);
   Application.CreateForm(TfrmSplash, frmSplash);
   Application.CreateForm(TfrmRegistrar, frmRegistrar);
+  Application.CreateForm(TfrmBuscarUsuarios, frmBuscarUsuarios);
   Application.Run;
 end.
