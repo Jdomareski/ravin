@@ -21,7 +21,8 @@ uses
   UValidadorUsuario in '..\codigo\Validadores\UValidadorUsuario.pas',
   UiniUtils in '..\codigo\Utils\UiniUtils.pas',
   UResourceUtils in '..\codigo\Utils\UResourceUtils.pas',
-  UfrmBuscarUsuarios in '..\codigo\formularios\UfrmBuscarUsuarios.pas' {frmBuscarUsuarios};
+  UfrmBuscarUsuarios in '..\codigo\formularios\UfrmBuscarUsuarios.pas' {frmBuscarUsuarios},
+  UFormsUtils in '..\codigo\Utils\UFormsUtils.pas';
 
 {$R *.res}
 

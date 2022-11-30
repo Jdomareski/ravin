@@ -86,7 +86,6 @@ object frmPainelGestao: TfrmPainelGestao
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 527
     DesignSize = (
       175
       519)
@@ -1154,12 +1153,12 @@ object frmPainelGestao: TfrmPainelGestao
       AlignWithMargins = True
       Left = 52
       Top = 119
-      Width = 65
+      Width = 64
       Height = 25
       Alignment = taCenter
       Anchors = [akLeft, akTop, akRight]
       BiDiMode = bdLeftToRight
-      Caption = 'Marcio'
+      Caption = 'Boka'#39's'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -21

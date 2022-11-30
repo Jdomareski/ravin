@@ -34,7 +34,7 @@ type
     procedure InicializarAplicacao;
     procedure ShowPainelGestao;
     procedure ShowLogin;
-    procedure SetarFormPrincipal(NewMainForm: TForm);
+
 
 
   public
@@ -48,7 +48,7 @@ implementation
 
 {$R *.dfm}
 
-uses UfrmPainelGestao, ufrmLogin, UiniUtils;
+uses UfrmPainelGestao, ufrmLogin, UiniUtils, UFormsUtils;
 
 procedure TfrmSplash.FormCreate(Sender: TObject);
 begin
@@ -89,13 +89,6 @@ begin
   end;
 end;
 
-procedure TfrmSplash.SetarFormPrincipal(NewMainForm: TForm);
-var
-  tmpMain: ^TCustomForm;
-begin
-  tmpMain := @Application.Mainform;
-  tmpMain^ := NewMainForm;
-end;
 
 procedure TfrmSplash.ShowLogin;
 begin
@@ -104,7 +97,7 @@ begin
     Application.CreateForm(Tfrmlogin, frmlogin);
   end;
 
-  SetarFormPrincipal(frmlogin);
+  TformUtils.SetarFormPrincipal(frmlogin);
   frmlogin.Show();
 
   Close;
@@ -117,7 +110,7 @@ begin
     Application.CreateForm(TfrmPainelGestao, frmPainelGestao);
   end;
 
-  SetarFormPrincipal(frmPainelGestao);
+  TformUtils.SetarFormPrincipal(frmPainelGestao);
   frmPainelGestao.Show();
 
   Close;

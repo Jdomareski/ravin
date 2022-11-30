@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MySQL,
   FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
   FireDAC.Comp.UI, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
-  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.Dialogs;
+  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.Dialogs, System.IOUtils;
 
 type
   TdmRavin = class(TDataModule)
@@ -30,7 +30,7 @@ var
   dmRavin: TdmRavin;
 
 implementation
-uses UResourceUtils;
+uses UResourceUtils, UiniUtils;
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
@@ -42,8 +42,8 @@ LcriarBaseDados : Boolean;
 LCaminhoBaseDados: String;
 
 begin
-  LcriarBaseDados := not FileExists
-    ('C:\ProgramData\MySQL\MySQL Server 8.0\Data\ravin\statusmesa.ibd');
+  LcriarBaseDados := not DirectoryExists(
+    (TIniUtils.lerPropriedade(TSECAO.CONFIGURACOES, TPROPRIEDADE.path)));
   if LcriarBaseDados then
   begin
     CriarTabelas();
@@ -59,17 +59,19 @@ LcriarBaseDados : Boolean;
 
 
 begin
-LCaminhoBaseDados := ('C:\ProgramData\MySQL\MySQL Server 8.0' +
-'\Data\ravin\pessoa.ibd');
-LcriarBaseDados := not FileExists ('C:\ProgramData\MySQL\MySQL Server 8.0'
-+ '\Data\ravin\statusmesa.ibd');
+LCaminhoBaseDados := TIniUtils.lerPropriedade(TSECAO.CONFIGURACOES, TPROPRIEDADE.path);
+//('C:\ProgramData\MySQL\MySQL Server 8.0' +
+//'\Data\ravin\pessoa.ibd');
+LcriarBaseDados := not Tdirectory.exists(LCaminhoBaseDados);
+//('C:\ProgramData\MySQL\MySQL Server 8.0')
+//+ '\Data\ravin');
   with cnxBancoDeDados do
   begin
-    params.values['Server']     := 'localhost';
-    params.values['User_name']  := 'root';
-    params.values['password']   := 'root';
-    params.values['DriverID']   := 'Mysql';
-    params.values['port']       := '3306';
+    params.values['Server']     := TIniUtils.lerPropriedade(TSECAO.database, TPROPRIEDADE.SERVER);
+    params.values['User_name']  := TIniUtils.lerPropriedade(TSECAO.database, TPROPRIEDADE.USERNAME);
+    params.values['password']   := TIniUtils.lerPropriedade(TSECAO.database, TPROPRIEDADE.PASSWORD);
+    params.values['DriverID']   := TIniUtils.lerPropriedade(TSECAO.CONFIGURACOES, TPROPRIEDADE.DRIVERID);
+    params.values['port']       := TIniUtils.lerPropriedade(TSECAO.database, TPROPRIEDADE.PORT);
 
     if not LcriarBaseDados then begin
     params.values['database'] := 'ravin';

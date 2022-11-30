@@ -19,14 +19,12 @@ type
     Label2: TLabel;
     Mesa: TImage;
     FrameAutenticar: TFrame1;
-    Button1: TButton;
     procedure FrameAutenticarSpeedButton1Click(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+
     procedure LblRegistrarClick(Sender: TObject);
   private
     { Private declarations }
   public
-    procedure setarfomprincipal(Pnovoformulario: TForm);
   end;
 
 var
@@ -36,31 +34,9 @@ implementation
 
 {$R *.dfm}
 
-uses UfrmPainelGestao, Uusuario, UusuarioDao, UfrmRegistrar, UiniUtils;
+uses UfrmPainelGestao, Uusuario, UusuarioDao, UfrmRegistrar, UiniUtils,
+  UFormsUtils;
 
-procedure TfrmLogin.Button1Click(Sender: TObject);
-var
-  LUsuario: TUsuario;
-  LDao: TUsuarioDAO;
-
-begin
-
-  LUsuario := TUsuario.Create;
-  LUsuario.login := 'Testte';
-  LUsuario.senha := '123';
-  LUsuario.pessoaId := 1;
-  LUsuario.criadoEm := Now();
-  LUsuario.criadoPor := 'Testte';
-  LUsuario.alteradoEm := Now();
-  LUsuario.alteradoPor := 'Testte';
-
-  LDao := TUsuarioDAO.Create;
-  LDao.InserirUsuario(LUsuario);
-
-  FreeAndNil(LDao);
-  FreeAndNil(LUsuario);
-
-end;
 
 procedure TfrmLogin.FrameAutenticarSpeedButton1Click(Sender: TObject);
 var
@@ -80,7 +56,7 @@ begin
     begin
       application.CreateForm(tfrmpainelgestao, frmPainelGestao);
     end;
-    setarfomprincipal(frmPainelGestao);
+    TformUtils.SetarFormPrincipal(frmPainelGestao);
     frmPainelGestao.show();
     close();
 
@@ -100,18 +76,11 @@ begin
     application.CreateForm(Tfrmregistrar, frmregistrar);
   end;
 
-  setarfomprincipal(frmregistrar);
+  TformUtils.SetarFormPrincipal(frmregistrar);
   frmregistrar.show();
 
   close();
 end;
 
-procedure TfrmLogin.setarfomprincipal(Pnovoformulario: TForm);
-var
-  tmpMain: ^TCustomForm;
-begin
-  tmpMain := @application.Mainform;
-  tmpMain^ := Pnovoformulario;
-end;
 
 end.
