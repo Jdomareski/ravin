@@ -15,12 +15,12 @@ type
 tem que ser igual ao que vai ser chamado no método
 usar para ordenar as informações, para detalhes localizar estas informações no
 arquivo configurações.ini}
-  TSECAO = (CONFIGURACOES, INFORMACOES_GERAIS, DATABASE, LOGINFO);
+  TSECAO = (CONFIGURACOES, INFORMACOES_GERAIS, DATABASE, LOGINFO, BANCO);
 
 type
 { NO TPROPRIEDADE se colocam as informações que ficam nas linhas abaixo dos titulos
 e que são os dados que se busca}
-  TPROPRIEDADE = (SERVER, USERNAME, PASSWORD, DRIVERID, PORT, PATH, LOGADO);
+  TPROPRIEDADE = (SERVER, DATAHORA_ULTIMO_lOGIN, USERNAME, PASSWORD, DRIVERID, PORT, PATH, LOGADO);
   {ATENCAO ESTES DOIS ITENS EM CONJUNTO FORMAM OS ENUMERADORES}
 
 {OUTRA FORMA DE FAZER:
