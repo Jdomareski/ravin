@@ -2021,7 +2021,7 @@ object frmPainelGestao: TfrmPainelGestao
             FF73D24395D5FF07922B1A78FF9631930000000049454E44AE426082}
         end
         inherited lblTitulo: TLabel
-          Caption = 'Pessoas'
+          Caption = 'Clientes'
           Font.Color = 6376463
           OnClick = frmMenuItemPessoaslblTituloClick
         end

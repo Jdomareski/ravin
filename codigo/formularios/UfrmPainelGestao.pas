@@ -60,7 +60,7 @@ implementation
 uses
   UfrmSobre,
   UfrmProdutos,
-  UfrmMesas, UfrmComandas, UiniUtils, UfrmBuscarUsuarios;
+  UfrmMesas, UfrmComandas, UiniUtils, UfrmBuscarUsuarios, UfrmListaClientes;
 
 procedure TfrmPainelGestao.FrameMenuItemMesasLabelTitleClick(Sender: TObject);
 begin
@@ -91,11 +91,11 @@ end;
 
 procedure TfrmPainelGestao.frmMenuItemPessoaslblTituloClick(Sender: TObject);
 begin
-if not assigned (frmBuscarUsuarios) then
+if not assigned (frmlistaClientes) then
 begin
-  Application.CreateForm(TfrmBuscarUsuarios, frmBuscarUsuarios);
+  Application.CreateForm(TfrmListaClientes, frmListaClientes);
 end;
- frmBuscarUsuarios.show();
+ frmListaClientes.show();
 end;
 
 procedure TfrmPainelGestao.frmMenuItemProdutoslblTituloClick(Sender: TObject);
