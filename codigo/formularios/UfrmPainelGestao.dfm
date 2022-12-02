@@ -3884,4 +3884,9 @@ object frmPainelGestao: TfrmPainelGestao
       end
     end
   end
+  object Timer1: TTimer
+    Interval = 25000
+    Left = 592
+    Top = 40
+  end
 end

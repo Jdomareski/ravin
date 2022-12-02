@@ -59,8 +59,24 @@ end;
 
 procedure TfrmCadastroCliente.frmBotaoExcluirspbBotaoExcluirClick(
   Sender: TObject);
+var
+LConfirmacaoExclusao : Integer;
+
 begin
- MessageDlg('Deseja mesmo excluir o registro?');
+ LConfirmacaoExclusao := MessageDlg('Deseja mesmo excluir o registro?', Tmsgdlgtype.mtwarning, [TMsgDlgBtn.MbYes,TMsgDlgBtn.MbNo], 0);
+
+ if LConfirmacaoExclusao = MrYes then
+  begin
+    ShowMessage ('Registro excluido com sucesso');
+    close ();
+  end;
+
+  if LConfirmacaoExclusao = MrNo then
+  Begin
+    //
+  End;
+
+
 Close();
 end;
 
